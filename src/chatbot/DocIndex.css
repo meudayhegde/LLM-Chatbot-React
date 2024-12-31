@@ -1,0 +1,151 @@
+.ModalRoot{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10
+}
+
+.ModalBody{
+    background-color: light-dark(#fff, #2f2f2f);
+    padding: 0 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px light-dark(#00000033, #ffffff55);
+    width: 60%;
+    border: 0.5px solid light-dark(#fff, #777);
+}
+
+.DropArea{
+    position: relative;
+    margin: 14px 0;
+    width: calc(100% - 28px);
+    border: 2px dashed #7d7d7d;
+    border-radius: 8px;
+    min-height: calc(min(30vh, 30vw));
+    transition: all 0.1s ease-in-out;
+    background-color: light-dark(#f2f2f2, #3f3f3f);
+    padding: 10px;
+    max-height: calc(min(40vh, 40vw));
+    overflow-y: scroll;
+}
+
+.DropArea .file-container:empty::before{
+    width: 100%;
+    text-align: center;
+    content: 'Click here or Drag & Drop .pdf, .docx, .pptx or .txt file to upload.';
+    position: absolute;
+    top: calc(min(30vh, 30vw) / 2);
+}
+
+.DropArea.drag-over, .DropArea:active{
+    border: 2px dashed #0091ff;
+    background-color: light-dark(#daf6ff, #5f5f5f);
+}
+
+.DropArea::-webkit-scrollbar{
+    display: none;
+}
+
+.file-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.file-item{
+    border-radius: 14px;
+    background-color: light-dark(#C5C5C5, #6d6d6d);
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.remove-btn{
+    margin-left: 15px;
+    transition: all 0.2s linear;
+}
+
+.remove-btn:hover{
+    transform: scale(1.1);
+}
+
+.upload-button{
+    color: white;
+    font-weight: bold;
+    background-color: #0084ff;
+    transition: all 0.1s linear;
+    min-height: 1.625rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.upload-button:hover{
+    background-color: #3599f7;
+}
+
+.upload-button:disabled{
+    background-color: #878787;
+}
+
+.cancel-button{
+    color: light-dark(#0084ff, #9dd0ff);
+    font-weight: bold;
+    background-color: #00000000;
+    transition: all 0.1s linear;
+    min-height: 1.625rem;
+    padding: 5px 10px;
+    border: 1px solid light-dark(#0084ff, #9dd0ff);
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.cancel-button:hover{
+    background-color: #c9e5ff55;
+}
+
+.cancel-button:disabled {
+    color: #878787;
+    border: 1px solid #878787;
+}
+
+.progress-bar-container {
+    width: 98%;
+    height: 4px;
+    background-color: #e0e0e0; /* Light gray */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: -5px 15px 0 5px;
+}
+  
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #2499ff; /* Purple color */
+    animation: slide 1.5s infinite ease-in-out;
+}
+  
+@keyframes slide {
+    0% {
+        width: 0%;
+        transform: translateX(0%);
+    }
+    /* 50% {
+        width: 75%;
+        transform: translateX(50%);
+    } */
+    100% {
+        width: 100%;
+        transform: translateX(100%);
+    }
+}
